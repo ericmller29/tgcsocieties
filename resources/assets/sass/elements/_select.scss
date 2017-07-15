@@ -1,0 +1,24 @@
+.select{
+	width: 100%;
+	overflow: hidden;
+	background: #fff;
+	border: solid 1px #ddd;
+	position: relative;
+	color: $text-color;
+
+	select{
+		appearance: none;
+		border: none;
+		background: transparent;
+		font-size: 1em;
+		width: 110%;
+		padding: 7px;
+	}
+
+	i{
+		position: absolute;
+		top: 50%;
+		right: 7px;
+		transform: translateY(-50%);
+	}
+}

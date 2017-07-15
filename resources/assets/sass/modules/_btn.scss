@@ -1,0 +1,25 @@
+.btn{
+	display: inline-block;
+	text-decoration: none;
+	padding: 10px 20px;
+	color: #fff;
+	background: $brand-primary;
+	transition: background 0.3s;
+	border: none;
+	cursor: pointer;
+	font-size: 1.1em;
+	letter-spacing: 1px;
+
+	&:hover{
+		color: #fff;
+		background: darken($brand-primary, 15);
+	}
+
+	&.with-margin-top{
+		margin-top: 10px;
+	}
+
+	&.icon-right i{
+		margin-left: 10px;
+	}
+}

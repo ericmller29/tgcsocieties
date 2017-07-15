@@ -1,0 +1,39 @@
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+html,body{
+	font-size: $font-size-base;
+	line-height: $line-height-base;
+	color: $text-color;
+	background-color: $body-bg;
+	margin: 0;
+	padding: 0;
+	font-family: $font-family;
+	display: flex;
+	min-height: 100vh;
+  	flex-direction: column;
+  	letter-spacing: 1px;
+}
+
+a{
+	color: $brand-primary;
+	transition: color 0.3s;
+
+	&:hover{
+		color: darken($brand-primary, 15);
+	}
+}
+
+.text-center{
+	text-align: center;
+}
+.text-right{
+	text-align: right;
+}
+
+.with-margin-top{
+	margin-top: 10px;
+}

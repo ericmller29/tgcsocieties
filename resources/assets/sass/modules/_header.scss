@@ -1,0 +1,13 @@
+.header{
+	width: 100%;
+	background: #353535;
+	padding: 20px;
+	-webkit-box-shadow: 0px 1px 5px 0px rgba(50, 50, 50, 0.8);
+	-moz-box-shadow:    0px 1px 5px 0px rgba(50, 50, 50, 0.8);
+	box-shadow:         0px 1px 5px 0px rgba(50, 50, 50, 0.8);
+	border-top: solid 5px $brand-primary;
+
+	.container{
+		align-items: center;
+	}
+}

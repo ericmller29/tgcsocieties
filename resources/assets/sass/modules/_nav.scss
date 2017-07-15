@@ -1,0 +1,140 @@
+.main-nav{
+	width: 70%;
+	text-align: right;
+	vertical-align: middle;
+
+	a{
+		display: inline-block;
+		color: #fff;
+		text-decoration: none;
+		margin-left: 30px;
+		text-transform: uppercase;
+		position: relative;
+		font-weight: bold;
+		transition: color 0.3s;
+
+		&:first-child{
+			margin-left: 0;
+		}
+
+		&.active, &:hover{
+			color: rgba(#fff, 0.8);
+		}
+
+		&.active:after{
+			position: absolute;
+			width: 100%;
+			height: 3px;
+			background: $brand-primary;
+			content: '';
+			left: 0;
+			bottom: -5px;
+		}
+	}
+
+	.dropdown{
+		position: relative;
+		display: inline-block;
+		font-weight: bold;
+		cursor: pointer;
+		span{
+			color: rgba(#fff, 0.8);
+			transition: color 0.3s;
+		}
+
+		.hitspot{
+			display: block;
+			position: absolute;
+			width: 100px;
+			height: 47px;
+			top: 0;
+			left: -15px;
+		}
+		&:hover span{
+			color: #fff;
+		}
+
+		&:hover .dropdown-nav{
+			margin-top: 25px;
+			opacity: 1;
+		    pointer-events: auto;
+		}
+
+		i{
+			margin-left: 5px;
+		}
+
+		.dropdown-nav{
+			position: absolute;
+			background: #353535;
+			right: 0;
+			width: 200px;
+			text-align: left;
+		    top: 100%;
+		    margin-top: 45px;
+		    opacity: 0;
+		    transition: margin-top 0.2s, opacity 0.1s;
+		    pointer-events: none;
+		    z-index: 9999;
+
+			button{
+				color: #fff;
+				text-decoration: none;
+				margin-left: 30px;
+				position: relative;
+				font-weight: bold;
+				transition: background 0.3s;
+				background: transparent;
+				border: none;
+				width: 100%;
+				text-align: left;
+				margin-left: 0;
+				font-size: 0.9em;
+				padding: 0;
+				cursor: pointer;
+				padding: 10px;
+
+				&:hover{
+					background: $brand-primary;
+				}
+			}
+
+			a{
+				display: block;
+				margin-left: 0;
+				padding: 10px;
+				border-bottom: solid 1px rgba(#fff, 0.3);
+				font-size: 0.9em;
+				text-transform: none;
+				transition: background 0.3s;
+
+				&:hover{
+					background: $brand-primary;
+					color: #fff;
+				}
+			}
+		}
+	}
+
+	.sep{
+		display: inline-block;
+		font-size: 0.4em;
+		position: relative;
+    	top: -3px;
+    	margin: 0 15px;
+
+    	& + a{
+    		margin-left: 0;
+    	}
+	}
+	.login-register{
+		margin: 0;
+	}
+	.slash{
+		display: inline-block;
+		margin: 0 5px;
+		font-size: 0.8em;
+		color: #fff;
+		opacity: 0.4;
+	}
+}

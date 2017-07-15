@@ -1,0 +1,16 @@
+.message{
+	background: $brand-success;
+	border: solid 1px darken($brand-success, 15);
+	color: #fff;
+	padding: 10px;
+	margin-top: 40px;
+
+	& + .panel{
+		margin-top: 10px;
+	}
+
+	&.error{
+		background: $brand-danger;
+		border-color: darken($brand-success, 15);
+	}
+}
