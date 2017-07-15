@@ -49,6 +49,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'gamer_tag' => 'required|string|max:255',
+            'platform' => 'required|in:PS4,PC,Xbox One',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -64,6 +65,7 @@ class RegisterController extends Controller
     {
         return User::create([
             'gamer_tag' => $data['gamer_tag'],
+            'platform' => $data['platform'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);

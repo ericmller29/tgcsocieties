@@ -16,10 +16,11 @@
 						<span>You have no tournaments created. Why don't you <a href="/my/tourneys/new">add one</a>?
 					</div>
 					@else
+                    @foreach(Auth::user()->tourneys as $tourney)
 					<div class="list-item">
-                    	<span>Fairway Blues Inaugural Open</span>
+                    	<span>{{ $tourney->name }}</span>
                     	<span>
-                    		<a href="#" class="action">
+                    		<a href="{{ route('tourney', ['societySlug' => $tourney->society->slug, 'tourneySlug' => $tourney->slug]) }}" class="action">
                     			<i class="fa fa-paperclip"></i>
                     		</a>
                     		<a href="#" class="action">
@@ -30,9 +31,16 @@
                     		</a>
                     	</span>
                     </div>
+                    @endforeach
                     @endif
                 </div>
             </div>
 		</div>
+        <div class="text-right with-margin-top">
+            <a href="{{ route('my.tourneys.new') }}" class="btn icon-right">
+                New Tournament
+                <i class="fa fa-plus"></i>
+            </a>
+        </div>
 	</div>
 @endsection

@@ -20,7 +20,7 @@
 					<div class="list-item">
                     	<span>{{ $society->name }}</span>
                     	<span>
-                    		<a href="#" class="action">
+                    		<a href="{{ route('society', $society->slug) }}" class="action">
                     			<i class="fa fa-paperclip"></i>
                     		</a>
                     		<a href="#" class="action">

@@ -32,9 +32,25 @@ class SocietiesController extends Controller
     		return redirect()->route('my.societies.new')->withErrors($validator)->withInput();
     	}
 
+        $slug = $request->get('name');
+        $slug = strtolower($slug);
+        //Make alphanumeric (removes all other characters)
+        $slug = preg_replace("/[^a-z0-9_\s-]/", "", $slug);
+        //Clean up multiple dashes or whitespaces
+        $slug = preg_replace("/[\s-]+/", " ", $slug);
+        //Convert whitespaces and underscore to dash
+        $slug = preg_replace("/[\s_]/", "-", $slug);
+
+        //Do some slug work
+        $duplicate_slug = Society::where('slug', $slug)->count();
+        if($duplicate_slug > 0){
+            $slug .= '-' . ($duplicate_slug + 1);
+        }
+
     	$society = new Society();
     	$society->name = $request->get('name');
     	$society->platform = $request->get('platform');
+        $society->slug = $slug;
     	$society->user()->associate(Auth::user());
     	$society->save();
 

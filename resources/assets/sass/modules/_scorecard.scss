@@ -1,0 +1,52 @@
+.scorecard{
+	h2{
+		margin-bottom: 0;
+		font-size: 2em;
+	}
+	h3{
+		margin-top: 0;
+	}
+
+	time{
+		font-style: italic;
+		color: $brand-primary;
+	}
+
+	table{
+		width: 100%;
+		border: solid 1px #d0d0d0;
+	}
+
+	thead th{
+		text-align: left;
+		padding: 5px;
+	}
+
+	tbody td{
+		padding: 5px;
+	}
+
+	thead{
+		background: #ddd;
+	}
+
+	.pos{
+		width: 75px;
+	}
+	.save{
+		width: 100px;
+	}
+	td input{
+		width: 100%;
+	}
+	tr{
+		transition: background 0.3s;
+	}
+	tr.found{
+		background: rgba($brand-danger, 0.5) !important;
+	}
+
+	tbody tr:nth-child(odd){
+		background: #fff;
+	}
+}

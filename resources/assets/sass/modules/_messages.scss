@@ -9,7 +9,7 @@
 		margin-top: 10px;
 	}
 
-	&.error{
+	&.error, &.error_no_scroll{
 		background: $brand-danger;
 		border-color: darken($brand-success, 15);
 	}

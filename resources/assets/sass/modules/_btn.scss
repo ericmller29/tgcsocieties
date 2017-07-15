@@ -10,6 +10,10 @@
 	font-size: 1.1em;
 	letter-spacing: 1px;
 
+	&.small{
+		padding: 5px 10px;
+		font-size: 0.9em;
+	}
 	&:hover{
 		color: #fff;
 		background: darken($brand-primary, 15);

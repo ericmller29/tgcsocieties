@@ -37,8 +37,32 @@ class TourneyController extends Controller
     	if($validator->fails()){
     		return redirect()->route('my.tourneys.new')->withErrors($validator)->withInput();
     	}
+
+        $slug = $request->get('name');
+        $slug = strtolower($slug);
+        //Make alphanumeric (removes all other characters)
+        $slug = preg_replace("/[^a-z0-9_\s-]/", "", $slug);
+        //Clean up multiple dashes or whitespaces
+        $slug = preg_replace("/[\s-]+/", " ", $slug);
+        //Convert whitespaces and underscore to dash
+        $slug = preg_replace("/[\s_]/", "-", $slug);
+
+        //Do some slug work
+        $duplicate_slug = Tourney::where('slug', $slug)->count();
+        if($duplicate_slug > 0){
+            $slug .= '-' . ($duplicate_slug + 1);
+        }
+
     	$society = Auth::user()->societies()->find($request->get('society_id'))->first();
-    	$tourney = new Tourney($request->all());
+    	$tourney = new Tourney();
+        $tourney->name = $request->get('name');
+        $tourney->course_name = $request->get('course_name');
+        $tourney->entry_fee = $request->get('entry_fee');
+        $tourney->start_date = $request->get('start_date');
+        $tourney->duration = $request->get('duration');
+        $tourney->rounds = $request->get('rounds');
+        $tourney->slug = $slug;
+        $tourney->society()->associate($request->get('society_id'));
     	$tourney->user()->associate(Auth::user());
     	$tourney->save();
 

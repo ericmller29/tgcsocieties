@@ -756,12 +756,27 @@ module.exports = __webpack_require__(34);
 __webpack_require__(9);
 
 $(function () {
-	if ($('.message').length) {
+	if ($('.message').length && !$('.message').hasClass('error')) {
 		setTimeout(function () {
 			$('.message').fadeOut('fast', function () {
 				$('.message').remove();
 			});
 		}, 3000);
+	}
+
+	if ($('[data-scrollto]').length) {
+		var trId = $('.message').data('scrollto'),
+		    scrollTo = $('#' + trId).offset().top;
+
+		$('html, body').animate({
+			scrollTop: scrollTo
+		}, 500, function () {
+			$('#' + trId).addClass('found');
+
+			setTimeout(function () {
+				$('#' + trId).removeClass('found');
+			}, 2000);
+		});
 	}
 });
 

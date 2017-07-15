@@ -31,6 +31,7 @@
                         <nav class="dropdown-nav">
                             <a href="/my/societies">Your Societies</a>
                             <a href="/my/tourneys">Your Tournaments</a>
+                            <a href="/my/settings">Settings</a>
                             <form method="post" action="/logout">
                                 {{ csrf_field() }}
                                 <button type="submit">Logout</button>
