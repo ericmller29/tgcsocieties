@@ -18,6 +18,13 @@ class LeaderboardController extends Controller
 
     	$data['tourney'] = $tourney;
 
+        $data['leaderboard'] = $tourney->leaderboard->sort(function($a, $b){
+            $scoreA = $a->getScoresTotal($a->scores);
+            $scoreB = $b->getScoresTotal($b->scores);
+
+            return $scoreA > $scoreB;
+        });
+
     	return view('mine.leaderboard', $data);
     }
 

@@ -23,7 +23,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					@foreach($tourney->leaderboard as $leader)
+					@foreach($leaderboard as $leader)
 					<tr>
 						<td>1</td>
 						<td>{{ $leader->username }}</td>
