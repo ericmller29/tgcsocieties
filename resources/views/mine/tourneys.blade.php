@@ -26,7 +26,7 @@
                     		<a href="#" class="action">
                     			<i class="fa fa-pencil"></i>
                     		</a>
-                    		<a href="#" class="action">
+                    		<a href="{{ route('my.tourneys.remove', $tourney->id) }}" class="action">
                     			<i class="fa fa-trash"></i>
                     		</a>
                     	</span>

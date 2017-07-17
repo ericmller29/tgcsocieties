@@ -70,4 +70,22 @@ class TourneyController extends Controller
     		->with('message', 'Successfully created ' . $tourney->name . ' for ' . $society->name . '!')
     		->with('type', 'success');
     }
+
+    public function remove($tourneyId){
+        $tourney = Auth::user()->tourneys()->find($tourneyId);
+
+        if(!isset($tourney)){
+            return redirect('404');
+        }
+
+        if($tourney->delete()){
+            return redirect()->route('my.tourneys')
+                ->with('message', 'Successfully deleted ' . $tourney->name . '!')
+                ->with('type', 'success');
+        }
+
+        return redirect()->route('my.tourneys')
+            ->with('message', 'Something went wrong trying to delete ' . $tourney->name . '. Please try again.')
+            ->with('type', 'error');
+    }
 }

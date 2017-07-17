@@ -30,6 +30,7 @@ Route::middleware(['auth'])->prefix('my')->group(function(){
 	Route::get('/tourneys', 'TourneyController@mine')->name('my.tourneys');
 	Route::get('/tourneys/new', 'TourneyController@newForm')->name('my.tourneys.new');
 	Route::post('/tourneys/new', 'TourneyController@create');
+	Route::get('/tourneys/remove/{tourneyId}', 'TourneyController@remove')->name('my.tourneys.remove');
 
 	Route::get('/leaderboards/{tourneyId}', 'LeaderboardController@showForm')->name('my.leaderboard');
 	Route::post('/leaderboards/{tourneyId}', 'LeaderboardController@create');
