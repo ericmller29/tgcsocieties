@@ -28,9 +28,9 @@
 						<td colspan="{{ 3+$tourney->rounds }}"><em>No scores entered yet!</em></td>
 					</tr>
 					@endif
-					@foreach($leaderboard as $leader)
+					@foreach($leaderboard as $key => $leader)
 					<tr>
-						<td>1</td>
+						<td>{{ $leader->rank }}</td>
 						<td>{{ $leader->username }}</td>
 						<td>{{ $leader->getScoresTotal($leader->scores) }}</td>
 						@foreach($leader->scores as $score)

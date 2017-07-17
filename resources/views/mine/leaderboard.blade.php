@@ -38,7 +38,7 @@
 					@foreach($leaderboard as $leaders)
 					<tr id="{{ $leaders->username }}">
 						<form method="post" action="/my/leaderboards/update/{{ $tourney->id }}/{{ $leaders->id }}">
-						<td>1</td>
+						<td>{{ $leaders->rank }}</td>
 						<td><input type="text" name="username" value="{{ $leaders->username }}"></td>
 						<td>{{ $leaders->getScoresTotal($leaders->scores) }}</td>
 						@foreach($leaders->scores as $key => $score)
