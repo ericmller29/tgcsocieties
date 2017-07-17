@@ -40,7 +40,7 @@
 						<form method="post" action="/my/leaderboards/update/{{ $tourney->id }}/{{ $leaders->id }}">
 						<td>{{ $leaders->rank }}</td>
 						<td><input type="text" name="username" value="{{ $leaders->username }}"></td>
-						<td>{{ $leaders->getScoresTotal($leaders->scores) }}</td>
+						<td>{{ $leaders->getScoresTotal($leaders->scores, $tourney->rounds, $tourney->par) }}</td>
 						@foreach($leaders->scores as $key => $score)
 						<td><input type="text" name="score[{{ $key }}]" value="{{ $score }}"></td>
 						@endforeach
@@ -55,7 +55,6 @@
 		<div class="panel with-margin-top">
 			<div class="panel-title">Add a new score</div>
 			<div class="panel-content with-padding">
-				<p>If the users score is even, please put 0.</p>
 				<form method="post" action="{{ route('my.leaderboard', $tourney->id) }}">
 	                <div class="form-input{{ $errors->has('username') ? ' has-error' : '' }}">
 	                    <label for="username">Gamer Tag:</label>

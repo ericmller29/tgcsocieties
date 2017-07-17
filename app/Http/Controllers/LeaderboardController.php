@@ -29,8 +29,8 @@ class LeaderboardController extends Controller
             return $scoreA > $scoreB;
         })->values();
 
-        $data['leaderboard'] = $leaders_sorted->map(function($player, $key) {
-            $playerScore = $player->getScoresTotal($player->scores);
+        $data['leaderboard'] = $leaders_sorted->map(function($player, $key) use ($tourney) {
+            $playerScore = $player->getScoresTotal($player->scores, $tourney->rounds, $tourney->par);
             
             if($this->last_score == 0){
                 $player['rank'] = $this->rank;

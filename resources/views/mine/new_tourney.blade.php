@@ -52,6 +52,15 @@
                             </span>
                         @endif
                     </div>
+                    <div class="form-input{{ $errors->has('par') ? ' has-error' : '' }}{{ $has_societies ? '' : ' is-disabled' }}">
+                        <label for="par">Par:</label>
+                        <input type="text" name="par" id="par"{{ $has_societies ? '' : ' disabled' }} value="{{ old('par') }}">
+                        @if ($errors->has('par'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('par') }}</strong>
+                            </span>
+                        @endif
+                    </div>
                     <div class="form-input{{ $errors->has('entry_fee') ? ' has-error' : '' }}{{ $has_societies ? '' : ' is-disabled' }}">
                         <label for="entry_fee">Entry Fee:</label>
                         <input type="text" name="entry_fee" id="entry_fee"{{ $has_societies ? '' : ' disabled' }} value="{{ old('entry_fee') }}">

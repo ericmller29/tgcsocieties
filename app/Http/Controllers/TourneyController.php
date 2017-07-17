@@ -31,7 +31,8 @@ class TourneyController extends Controller
     		'entry_fee' => 'required|integer',
     		'start_date' => 'required|date',
     		'duration' => 'required|integer|in:1,2,3,4,5,6,7,8,9,10',
-    		'rounds' => 'required|integer|in:1,2,3,4'
+    		'rounds' => 'required|integer|in:1,2,3,4',
+            'par' => 'required|integer'
     	]);
 
     	if($validator->fails()){
@@ -61,6 +62,7 @@ class TourneyController extends Controller
         $tourney->start_date = $request->get('start_date') . ' 00:00:00';
         $tourney->duration = $request->get('duration');
         $tourney->rounds = $request->get('rounds');
+        $tourney->par = $request->get('par');
         $tourney->slug = $slug;
         $tourney->society()->associate($request->get('society_id'));
     	$tourney->user()->associate(Auth::user());

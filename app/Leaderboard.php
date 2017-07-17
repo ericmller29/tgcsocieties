@@ -17,7 +17,7 @@ class Leaderboard extends Model
     	return json_decode($value);
     }
 
-    public function getScoresTotal($scores){
-    	return array_sum(get_object_vars($scores));
+    public function getScoresTotal($scores, $rounds, $par){
+    	return array_sum(get_object_vars($scores)) - ($rounds * $par);
     }
 }

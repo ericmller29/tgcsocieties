@@ -22,7 +22,8 @@ class ViewController extends Controller
 
     public function tourney($societySlug, $tourneySlug){
 		$data['society'] = Societies::where('slug', $societySlug)->first();
-		$data['tourney'] = $data['society']->tourneys()->where('slug', $tourneySlug)->first();
+		$tourney = $data['society']->tourneys()->where('slug', $tourneySlug)->first();
+		$data['tourney'] = $tourney;
 		$leaderboard = collect($data['tourney']->leaderboard);
 		
 		if(Auth::check()){
@@ -36,8 +37,8 @@ class ViewController extends Controller
 			return $scoreA > $scoreB;
 		})->values();
 
-		$data['leaderboard'] = $leaders_sorted->map(function($player, $key) {
-			$playerScore = $player->getScoresTotal($player->scores);
+		$data['leaderboard'] = $leaders_sorted->map(function($player, $key) use ($tourney) {
+            $playerScore = $player->getScoresTotal($player->scores, $tourney->rounds, $tourney->par);
 			
 			if($this->last_score == 0){
 				$player['rank'] = $this->rank;
