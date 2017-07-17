@@ -58,7 +58,7 @@ class TourneyController extends Controller
         $tourney->name = $request->get('name');
         $tourney->course_name = $request->get('course_name');
         $tourney->entry_fee = $request->get('entry_fee');
-        $tourney->start_date = $request->get('start_date');
+        $tourney->start_date = $request->get('start_date') . ' 00:00:00';
         $tourney->duration = $request->get('duration');
         $tourney->rounds = $request->get('rounds');
         $tourney->slug = $slug;

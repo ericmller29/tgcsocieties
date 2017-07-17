@@ -30,6 +30,11 @@
 					</tr>
 				</thead>
 				<tbody>
+					@if(!count($leaderboard))
+					<tr>
+						<td colspan="{{ 4+$tourney->rounds }}">No scores entered yet!</td>
+					</tr>
+					@endif
 					@foreach($leaderboard as $leaders)
 					<tr id="{{ $leaders->username }}">
 						<form method="post" action="/my/leaderboards/update/{{ $tourney->id }}/{{ $leaders->id }}">

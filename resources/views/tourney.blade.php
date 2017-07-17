@@ -23,6 +23,11 @@
 					</tr>
 				</thead>
 				<tbody>
+					@if(!count($leaderboard))
+					<tr>
+						<td colspan="{{ 3+$tourney->rounds }}"><em>No scores entered yet!</em></td>
+					</tr>
+					@endif
 					@foreach($leaderboard as $leader)
 					<tr>
 						<td>1</td>

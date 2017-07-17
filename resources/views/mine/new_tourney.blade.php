@@ -116,7 +116,7 @@
 <script type="text/javascript" src="{{ asset('js/datepicker.min.js') }}"></script>
 <script type="text/javascript">
     $(function(){
-        $('[data-toggle="datepicker"]').datepicker({ autoHide: true, format: 'yyyy/mm/dd' });
+        $('[data-toggle="datepicker"]').datepicker({ autoHide: true, format: 'yyyy-mm-dd' });
     })
 </script>
 @endsection
