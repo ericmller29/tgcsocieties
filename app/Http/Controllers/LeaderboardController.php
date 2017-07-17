@@ -11,6 +11,7 @@ class LeaderboardController extends Controller
 {
     public $rank = 1;
     public $last_score = 0;
+    public $tie_count = 1;
     
     public function showForm($tourneyId){
     	$tourney = Auth::user()->tourneys()->find($tourneyId);
@@ -35,8 +36,10 @@ class LeaderboardController extends Controller
                 $player['rank'] = $this->rank;
             }else if($playerScore == $this->last_score){
                 $player['rank'] = 'T' . $this->rank;
+                $this->tie_count = $this->tie_count + 1;
             }else if($playerScore > $this->last_score){
-                $this->rank = $this->rank + 1;
+                $this->rank = $this->rank + $this->tie_count;
+                $this->tie_count = 1;
 
                 $player['rank'] = $this->rank;
             }
