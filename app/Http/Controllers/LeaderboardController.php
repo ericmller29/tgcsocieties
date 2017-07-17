@@ -22,9 +22,9 @@ class LeaderboardController extends Controller
 
     	$data['tourney'] = $tourney;
 
-        $leaders_sorted = $tourney->leaderboard->sort(function($a, $b){
-            $scoreA = $a->getScoresTotal($a->scores);
-            $scoreB = $b->getScoresTotal($b->scores);
+        $leaders_sorted = $tourney->leaderboard->sort(function($a, $b) use ($tourney){
+            $scoreA = $a->getScoresTotal($a->scores, $tourney->rounds, $tourney->par);
+            $scoreB = $b->getScoresTotal($b->scores, $tourney->rounds, $tourney->par);
 
             return $scoreA > $scoreB;
         })->values();

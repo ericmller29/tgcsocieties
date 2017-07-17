@@ -30,9 +30,9 @@ class ViewController extends Controller
 			$data['is_users'] = Auth::user()->societies()->find($data['society']->id)->count();
 		}
 
-		$leaders_sorted = $leaderboard->sort(function($a, $b){
-			$scoreA = $a->getScoresTotal($a->scores);
-			$scoreB = $b->getScoresTotal($b->scores);
+		$leaders_sorted = $leaderboard->sort(function($a, $b) use ($tourney){
+            $scoreA = $a->getScoresTotal($a->scores, $tourney->rounds, $tourney->par);
+            $scoreB = $b->getScoresTotal($b->scores, $tourney->rounds, $tourney->par);
 
 			return $scoreA > $scoreB;
 		})->values();
