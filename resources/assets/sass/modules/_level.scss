@@ -1,0 +1,42 @@
+.level{
+	h2{
+		font-size: 2em;
+	}
+	table{
+		width: 100%;
+		border: solid 1px #d0d0d0;
+	}
+
+	thead th{
+		text-align: left;
+		padding: 5px;
+	}
+
+	tbody td{
+		padding: 5px;
+	}
+
+	thead{
+		background: #ddd;
+	}
+
+	.pos{
+		width: 75px;
+	}
+	.save{
+		width: 100px;
+	}
+	td input{
+		width: 100%;
+	}
+	tr{
+		transition: background 0.3s;
+	}
+	tr.found{
+		background: rgba($brand-danger, 0.5) !important;
+	}
+
+	tbody tr:nth-child(odd){
+		background: #fff;
+	}
+}

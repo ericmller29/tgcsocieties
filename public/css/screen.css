@@ -706,46 +706,50 @@ a:hover {
   color: #9EC34F;
 }
 
-.scorecard table {
+.level h2 {
+  font-size: 2em;
+}
+
+.level table {
   width: 100%;
   border: solid 1px #d0d0d0;
 }
 
-.scorecard thead th {
+.level thead th {
   text-align: left;
   padding: 5px;
 }
 
-.scorecard tbody td {
+.level tbody td {
   padding: 5px;
 }
 
-.scorecard thead {
+.level thead {
   background: #ddd;
 }
 
-.scorecard .pos {
+.level .pos {
   width: 75px;
 }
 
-.scorecard .save {
+.level .save {
   width: 100px;
 }
 
-.scorecard td input {
+.level td input {
   width: 100%;
 }
 
-.scorecard tr {
+.level tr {
   -webkit-transition: background 0.3s;
   transition: background 0.3s;
 }
 
-.scorecard tr.found {
+.level tr.found {
   background: rgba(224, 54, 63, 0.5) !important;
 }
 
-.scorecard tbody tr:nth-child(odd) {
+.level tbody tr:nth-child(odd) {
   background: #fff;
 }
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Societies;
+use App\Tourneys;
 use Auth;
 
 class ViewController extends Controller
@@ -20,7 +21,7 @@ class ViewController extends Controller
 		return view('society', $data);
     }
 
-    public function tourney($societySlug, $tourneySlug){
+    public function leaderboard($societySlug, $tourneySlug){
 		$data['society'] = Societies::where('slug', $societySlug)->first();
 		$tourney = $data['society']->tourneys()->where('slug', $tourneySlug)->first();
 		$data['tourney'] = $tourney;
@@ -55,6 +56,12 @@ class ViewController extends Controller
 			return $player;
 		});
 
-		return view('tourney', $data);
+		return view('leaderboard', $data);
+    }
+
+    public function tourneys(){
+    	$data['tourneys'] = Tourneys::where('finalized', 0)->orderby('start_date')->get();
+
+    	return view('tourneys', $data);
     }
 }

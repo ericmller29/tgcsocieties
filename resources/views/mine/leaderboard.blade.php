@@ -9,7 +9,7 @@
              {{ session('message') }}
         </div>
         @endif
-		<div class="scorecard">
+		<div class="scorecard level">
 			<h2>
 				{{ $tourney->name }}
 			</h2>

@@ -21,6 +21,11 @@ Route::get('/login', function(){
 	return view('login');
 })->name('login');
 
+Route::get('/tourneys', 'ViewController@tourneys')->name('tourneys');
+
+Route::get('/societies', function(){
+	return view('societies');
+})->name('societies');
 
 Route::middleware(['auth'])->prefix('my')->group(function(){
 	Route::get('/societies', 'SocietiesController@mine')->name('my.societies');
@@ -47,4 +52,4 @@ Route::get('/404', function(){
 	return redirect('/');
 });
 Route::get('/{societySlug}', 'ViewController@society')->name('society');
-Route::get('/{societySlug}/{tourneySlug}', 'ViewController@tourney')->name('tourney');
+Route::get('/{societySlug}/{tourneySlug}', 'ViewController@leaderboard')->name('tourney');

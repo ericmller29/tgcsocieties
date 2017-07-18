@@ -2,7 +2,7 @@
 
 @section('contents')
 	<div class="container">
-		<div class="scorecard">
+		<div class="scorecard level">
 			<h2>
 				{{ $tourney->name }}
 			</h2>
