@@ -58,7 +58,7 @@
 				<form method="post" action="{{ route('my.leaderboard', $tourney->id) }}">
 	                <div class="form-input{{ $errors->has('username') ? ' has-error' : '' }}">
 	                    <label for="username">Gamer Tag:</label>
-	                    <input type="text" name="username" id="username">
+	                    <input type="text" name="username" id="username" autofocus>
 	                    @if ($errors->has('username'))
 	                        <span class="help-block">
 	                            <strong>{{ $errors->first('username') }}</strong>
