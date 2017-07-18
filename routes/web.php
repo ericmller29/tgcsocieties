@@ -31,10 +31,13 @@ Route::middleware(['auth'])->prefix('my')->group(function(){
 	Route::get('/tourneys/new', 'TourneyController@newForm')->name('my.tourneys.new');
 	Route::post('/tourneys/new', 'TourneyController@create');
 	Route::get('/tourneys/remove/{tourneyId}', 'TourneyController@remove')->name('my.tourneys.remove');
+	Route::get('/tourneys/edit/{tourneyId}', 'TourneyController@showEdit')->name('my.tourneys.edit');
+	Route::post('/tourneys/edit/{tourneyId}', 'TourneyController@save');
 
 	Route::get('/leaderboards/{tourneyId}', 'LeaderboardController@showForm')->name('my.leaderboard');
 	Route::post('/leaderboards/{tourneyId}', 'LeaderboardController@create');
 	Route::post('/leaderboards/update/{tourneyId}/{leaderId}', 'LeaderboardController@update');
+	Route::get('/leaderboards/remove/{tourneyId}/{leaderId}', 'LeaderboardController@remove')->name('my.leaderboard.remove');
 });
 
 Route::get('/404', function(){

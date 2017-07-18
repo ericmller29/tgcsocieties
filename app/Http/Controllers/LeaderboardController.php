@@ -29,7 +29,7 @@ class LeaderboardController extends Controller
             return $scoreA > $scoreB;
         })->values();
 
-        $data['leaderboard'] = $leaders_sorted->map(function($player, $key) use ($tourney) {
+        $data['leaderboard'] = $leaders_sorted->map(function($player, $key) use ($tourney, $leaders_sorted) {
             $playerScore = $player->getScoresTotal($player->scores, $tourney->rounds, $tourney->par);
             
             if($this->last_score == 0){
@@ -100,5 +100,20 @@ class LeaderboardController extends Controller
     	return redirect()->route('my.leaderboard', $tourneyId)
     		->with('message', 'The score for ' . $user->username . ' has been updated!')
     		->with('type', 'success');
+    }
+
+    public function remove($tourneyId, $leaderId){
+        $tourney = Auth::user()->tourneys()->find($tourneyId);
+        $leader = $tourney->leaderboard()->find($leaderId);
+
+        if(!isset($leader)){
+            return redirect('/404');
+        }
+        
+        if($leader->delete()){
+            return redirect()->route('my.leaderboard', $tourneyId)
+                ->with('message', 'Successfully removed ' . $leader->username . ' from the leaderboards!')
+                ->with('type', 'success');
+        }
     }
 }

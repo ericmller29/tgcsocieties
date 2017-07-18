@@ -23,7 +23,7 @@
                     		<a href="{{ route('tourney', ['societySlug' => $tourney->society->slug, 'tourneySlug' => $tourney->slug]) }}" class="action">
                     			<i class="fa fa-paperclip"></i>
                     		</a>
-                    		<a href="#" class="action">
+                    		<a href="{{ route('my.tourneys.edit', $tourney->id) }}" class="action">
                     			<i class="fa fa-pencil"></i>
                     		</a>
                     		<a href="{{ route('my.tourneys.remove', $tourney->id) }}" class="action">

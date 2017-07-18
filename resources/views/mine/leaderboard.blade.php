@@ -27,6 +27,7 @@
 						<th class="pos">R{{ $i }}</th>
 						@endfor
 						<th></th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -44,7 +45,8 @@
 						@foreach($leaders->scores as $key => $score)
 						<td><input type="text" name="score[{{ $key }}]" value="{{ $score }}"></td>
 						@endforeach
-						<td class="save text-right"><button type="submit" class="btn small">Save</button></td>
+						<td class="save text-center"><button type="submit" class="btn small">Save</button></td>
+						<td class="pos text-center"><a href="{{ route('my.leaderboard.remove', ['tourneyId' => $tourney->id, 'leaderId' => $leaders->id]) }}" class="btn small"><i class="fa fa-trash"></i></a></td>
 						{{ csrf_field() }}
 						</form>
 					</tr>

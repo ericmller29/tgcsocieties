@@ -30,7 +30,7 @@
 					@endif
 					@foreach($leaderboard as $key => $leader)
 					<tr>
-						<td>{{ $leader->rank }}</td>
+						<td><strong>{{ $leader->rank }}</strong></td>
 						<td>{{ $leader->username }}</td>
 						<td>{{ $leader->getScoresTotal($leader->scores, $tourney->rounds, $tourney->par) }}</td>
 						@foreach($leader->scores as $score)

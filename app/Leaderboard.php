@@ -18,6 +18,8 @@ class Leaderboard extends Model
     }
 
     public function getScoresTotal($scores, $rounds, $par){
-    	return array_sum(get_object_vars($scores)) - ($rounds * $par);
+        $score = array_sum(get_object_vars($scores)) - ($rounds * $par);
+
+    	return ($score < 0) ? $score : '+' . $score;
     }
 }
