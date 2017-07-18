@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>TGC Societies Leaderboards</title>
+        <title>TGC Societies</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="{{ asset('css/screen.css') }}">
@@ -18,8 +18,9 @@
                     TGC Societies
                 </spaan>
                 <nav class="main-nav">
-                    <a href="#" class="active">Home</a>
+                    <a href="{{ route('home') }}" class="active">Home</a>
                     <a href="#">Societies</a>
+                    <a href="#">Tournaments</a>
                     <span class="sep"><i class="fa fa-circle"></i></span>
                     @if(Auth::check())
                     <div class="dropdown">
