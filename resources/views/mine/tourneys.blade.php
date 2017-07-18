@@ -20,8 +20,8 @@
 					<div class="list-item">
                     	<span>{{ $tourney->name }}</span>
                     	<span>
-                    		<a href="{{ route('tourney', ['societySlug' => $tourney->society->slug, 'tourneySlug' => $tourney->slug]) }}" class="action">
-                    			<i class="fa fa-paperclip"></i>
+                    		<a href="{{ route('tourney', ['societySlug' => $tourney->society->slug, 'tourneySlug' => $tourney->slug]) }}" class="action" alt="View Leaderboard" title="View Leaderboard">
+                    			<i class="fa fa-list"></i>
                     		</a>
                     		<a href="{{ route('my.tourneys.edit', $tourney->id) }}" class="action">
                     			<i class="fa fa-pencil"></i>

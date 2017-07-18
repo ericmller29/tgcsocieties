@@ -26,6 +26,9 @@ Route::middleware(['auth'])->prefix('my')->group(function(){
 	Route::get('/societies', 'SocietiesController@mine')->name('my.societies');
 	Route::get('/societies/new', 'SocietiesController@newForm')->name('my.societies.new');
 	Route::post('/societies/new', 'SocietiesController@create');
+	Route::get('/societies/edit/{societyId}', 'SocietiesController@editForm')->name('my.societies.edit');
+	Route::post('/societies/edit/{societyId}', 'SocietiesController@save');
+	Route::get('/societies/delete/{societyId}', 'SocietiesController@remove')->name('my.societies.delete');
 
 	Route::get('/tourneys', 'TourneyController@mine')->name('my.tourneys');
 	Route::get('/tourneys/new', 'TourneyController@newForm')->name('my.tourneys.new');

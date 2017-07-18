@@ -23,10 +23,10 @@
                     		<a href="{{ route('society', $society->slug) }}" class="action">
                     			<i class="fa fa-paperclip"></i>
                     		</a>
-                    		<a href="#" class="action">
+                    		<a href="{{ route('my.societies.edit', $society->id) }}" class="action">
                     			<i class="fa fa-pencil"></i>
                     		</a>
-                    		<a href="#" class="action">
+                    		<a href="{{ route('my.societies.delete', $society->id) }}" class="action">
                     			<i class="fa fa-trash"></i>
                     		</a>
                     	</span>
