@@ -96,6 +96,7 @@ class TourneyController extends Controller
         $tourney->rounds = $request->get('rounds');
         $tourney->par = $request->get('par');
         $tourney->slug = $this->doSlugThing($request->get('name'));
+        $tourney->charity = $request->get('charity') ? true : false;
         $tourney->society()->associate($request->get('society_id'));
     	$tourney->user()->associate(Auth::user());
     	$tourney->save();

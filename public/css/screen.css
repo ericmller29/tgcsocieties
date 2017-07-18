@@ -329,6 +329,15 @@ a:hover {
   font-size: 1em;
 }
 
+.form-input input[type="checkbox"] {
+  display: inline-block;
+  width: auto;
+}
+
+.form-input input[type="checkbox"] + label {
+  display: inline-block;
+}
+
 .form-input.has-error {
   color: #E0363F;
 }
@@ -549,6 +558,72 @@ a:hover {
   opacity: 0.4;
 }
 
+.filters {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.filters div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.filters .select {
+  display: inline-block;
+  width: auto;
+  padding-right: 20px;
+  margin-left: 15px;
+}
+
+.filters strong {
+  text-transform: uppercase;
+}
+
+.filters .form-input {
+  width: 450px;
+  position: relative;
+}
+
+.filters .form-input i {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.filters .form-input input {
+  padding: 7px 12px;
+  border-radius: 30px;
+  padding-left: 35px;
+  padding-right: 110px;
+}
+
+.filters .btn {
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+
+.filters .btn span {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  position: relative;
+  top: -3px;
+}
+
 .main-content {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -708,6 +783,14 @@ a:hover {
 
 .level h2 {
   font-size: 2em;
+}
+
+.level h2 + h3 {
+  margin-top: 0;
+}
+
+.level h3 {
+  font-size: 1.5em;
 }
 
 .level table {

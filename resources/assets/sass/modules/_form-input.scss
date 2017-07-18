@@ -22,6 +22,14 @@
 		border: solid 1px #ddd;
 		font-size: 1em;
 	}
+	input[type="checkbox"]{
+		display: inline-block;
+		width: auto;
+
+		& + label{
+			display: inline-block;
+		}
+	}
 
 	&.has-error{
 		color: $brand-danger;

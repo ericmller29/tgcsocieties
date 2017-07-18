@@ -1,0 +1,55 @@
+.filters{
+	display: flex;
+	margin-bottom: 20px;
+	justify-content: space-between;
+
+	div{
+		display: flex;
+		align-items: center;
+	}
+
+	.select{
+		display: inline-block;
+		width: auto;
+		padding-right: 20px;
+		margin-left: 15px;
+	}
+
+	strong{
+		text-transform: uppercase;
+	}
+
+	.form-input{
+		width: 450px;
+		position: relative;
+
+		i{
+			position: absolute;
+			top: 50%;
+			left: 12px;
+			transform: translateY(-50%);
+		}
+		input{
+			padding: 7px 12px;
+			border-radius: 30px;
+			padding-left: 35px;
+			padding-right: 110px;
+		}
+	}
+
+	.btn{
+		border-top-right-radius: 30px;
+		border-bottom-right-radius: 30px;
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 100%;
+
+		span{
+			font-size: 0.8em;
+			text-transform: uppercase;
+			position: relative;
+    		top: -3px;
+		}
+	}
+}

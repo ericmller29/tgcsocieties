@@ -37,7 +37,6 @@
                 </spaan>
                 <nav class="main-nav">
                     <a href="{{ route('home') }}"{{ Route::is('home') ? ' class=active' : '' }}>Home</a>
-                    <a href="{{ route('societies') }}"{{ Route::is('societies') ? ' class=active' : '' }}>Societies</a>
                     <a href="{{ route('tourneys') }}"{{ Route::is('tourneys') ? ' class=active' : '' }}>Tournaments</a>
                     <span class="sep"><i class="fa fa-circle"></i></span>
                     @if(Auth::check())
