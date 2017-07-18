@@ -16,6 +16,18 @@ class ViewController extends Controller
 	public $last_score = 0;
 	public $tie_count = 1;
 
+	public function index(){
+    	$tourneys = collect(Tourneys::all());
+
+    	$data['tourneys'] = $tourneys->filter(function($t){
+    		$end_date = $t->start_date->addDays($t->duration);
+    		$currentDate = Carbon::now();
+
+    		return $currentDate->lt($end_date) && $currentDate->gte($t->start_date);
+    	})->forPage(1, 10)->all();
+
+    	return view('homepage', $data);
+	}
     public function society($societySlug){
 		$data['society'] = Societies::where('slug', $societySlug)->first();
 		$tourneys = collect($data['society']->tourneys);
