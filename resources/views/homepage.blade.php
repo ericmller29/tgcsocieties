@@ -20,6 +20,7 @@
             </tr>
         </thead>
         <tbody>
+            @if(count($tourneys) > 0)
             @foreach($tourneys as $tourney)
             <tr>
                 <td><a href="{{ route('tourney', ['societySlug' => $tourney->society->slug, 'tourneySlug' => $tourney->slug]) }}" class="action" alt="View Leaderboard" title="View Leaderboard">{{ $tourney->name }}</a></td>
@@ -31,6 +32,11 @@
                 <td>{{ ($tourney->charity) ? 'Charity Event' : $tourney->leaderboard()->count() * $tourney->entry_fee }}</td>
             </tr>
             @endforeach
+            @else
+            <tr>
+                <td colspan="7">No current events scheduled</td>
+            </tr>
+            @endif
         </tbody>
     </table>
     <div class="text-right">

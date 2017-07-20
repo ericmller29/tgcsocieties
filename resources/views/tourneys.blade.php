@@ -29,17 +29,23 @@
 				</tr>
 			</thead>
 			<tbody>
-				@foreach($tourneys as $tourney)
-				<tr>
-					<td><a href="{{ route('tourney', ['societySlug' => $tourney->society->slug, 'tourneySlug' => $tourney->slug]) }}" class="action" alt="View Leaderboard" title="View Leaderboard">{{ $tourney->name }}</a></td>
-					<td><a href="{{ route('society', $tourney->society->slug) }}" class="action">{{ $tourney->society->name }} [{{$tourney->society->platform}}]</a></td>
-					<td>{{ $tourney->start_date->format('D F d, Y') }} - {{ $tourney->start_date->addDays($tourney->duration)->format('D F d, Y') }}</td>
-					<td>{{ $tourney->course_name }}</td>
-					<td>{{ $tourney->rounds }}</td>
-					<td>{{ $tourney->leaderboard()->count() }}</td>
-					<td>{{ ($tourney->charity) ? 'Charity Event' : $tourney->leaderboard()->count() * $tourney->entry_fee }}</td>
-				</tr>
-				@endforeach
+	            @if(count($tourneys) > 0)
+	            @foreach($tourneys as $tourney)
+	            <tr>
+	                <td><a href="{{ route('tourney', ['societySlug' => $tourney->society->slug, 'tourneySlug' => $tourney->slug]) }}" class="action" alt="View Leaderboard" title="View Leaderboard">{{ $tourney->name }}</a></td>
+	                <td><a href="{{ route('society', $tourney->society->slug) }}" class="action">{{ $tourney->society->name }} [{{$tourney->society->platform}}]</a></td>
+	                <td>{{ $tourney->start_date->format('D F d, Y') }} - {{ $tourney->start_date->addDays($tourney->duration)->format('D F d, Y') }}</td>
+	                <td>{{ $tourney->course_name }}</td>
+	                <td>{{ $tourney->rounds }}</td>
+	                <td>{{ $tourney->leaderboard()->count() }}</td>
+	                <td>{{ ($tourney->charity) ? 'Charity Event' : $tourney->leaderboard()->count() * $tourney->entry_fee }}</td>
+	            </tr>
+	            @endforeach
+	            @else
+	            <tr>
+	                <td colspan="7">No current events scheduled</td>
+	            </tr>
+	            @endif
 			</tbody>
 		</table>
 	</div>
