@@ -16,6 +16,7 @@
 				</tr>
 			</thead>
 			<tbody>
+				@if($current_tourney)
 				<tr>
 					<td><a href="{{ route('tourney', ['societySlug' => $current_tourney->society->slug, 'tourneySlug' => $current_tourney->slug]) }}" class="action" alt="View Leaderboard" title="View Leaderboard">{{ $current_tourney->name }}</a></td>
 					<td>{{ $current_tourney->start_date->format('D F d, Y') }} - {{ $current_tourney->start_date->addDays($current_tourney->duration)->format('D F d, Y') }}</td>
@@ -24,6 +25,11 @@
 					<td>{{ $current_tourney->leaderboard()->count() }}</td>
 					<td>{{ ($current_tourney->charity) ? 'Charity Event' : $current_tourney->leaderboard()->count() * $current_tourney->entry_fee }}</td>
 				</tr>
+				@else
+				<tr>
+					<td colspan="6">No current events!</td>
+				</tr>
+				@endif
 			</tbody>
 		</table>
 		<h3>Past Tournaments</h3>

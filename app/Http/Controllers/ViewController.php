@@ -30,7 +30,7 @@ class ViewController extends Controller
 	}
     public function society($societySlug){
 		$data['society'] = Societies::where('slug', $societySlug)->first();
-		$tourneys = collect($data['society']->tourneys);
+		$tourneys = collect($data['society']->tourneys()->orderBy('start_date', 'desc')->get());
 
     	$data['current_tourney'] = $tourneys->filter(function($t){
     		$end_date = $t->start_date->addDays($t->duration);
