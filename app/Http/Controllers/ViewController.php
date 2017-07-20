@@ -56,7 +56,7 @@ class ViewController extends Controller
 		$data['tourney'] = $tourney;
 		$leaderboard = collect($data['tourney']->leaderboard);
 		
-		if(Auth::check()){
+		if(Auth::check() && Auth::user()->societies()->find($data['society']->id)){
 			$data['is_users'] = Auth::user()->societies()->find($data['society']->id)->count();
 		}
 
