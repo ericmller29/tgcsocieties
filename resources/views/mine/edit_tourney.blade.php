@@ -61,6 +61,15 @@
                             </span>
                         @endif
                     </div>
+                    <div class="form-input{{ $errors->has('purse') ? ' has-error' : '' }}{{ $has_societies ? '' : ' is-disabled' }}">
+                        <label for="purse">Purse Amount:</label>
+                        <input type="text" name="purse" id="purse"{{ $has_societies ? '' : ' disabled' }} value="{{ $tourney->purse }}">
+                        @if ($errors->has('purse'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('purse') }}</strong>
+                            </span>
+                        @endif
+                    </div>
                     <div class="form-input{{ $errors->has('entry_fee') ? ' has-error' : '' }}{{ $has_societies ? '' : ' is-disabled' }}">
                         <label for="entry_fee">Entry Fee:</label>
                         <input type="text" name="entry_fee" id="entry_fee"{{ $has_societies ? '' : ' disabled' }} value="{{ $tourney->entry_fee }}">
