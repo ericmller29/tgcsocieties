@@ -38,7 +38,7 @@
 	                <td>{{ $tourney->course_name }}</td>
 	                <td>{{ $tourney->rounds }}</td>
 	                <td>{{ $tourney->leaderboard()->count() }}</td>
-	                <td>{{ ($tourney->purse != false) ? $tourney->leaderboard()->count() * $tourney->entry_fee : $tourney->purse }}</td>
+	                <td>{{ (is_null($tourney->purse)) ? $tourney->leaderboard()->count() * $tourney->entry_fee : $tourney->purse }}</td>
 	            </tr>
 	            @endforeach
 	            @else
