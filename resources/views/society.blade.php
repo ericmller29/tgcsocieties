@@ -23,7 +23,7 @@
 					<td>{{ $current_tourney->course_name }}</td>
 					<td>{{ $current_tourney->rounds }}</td>
 					<td>{{ $current_tourney->leaderboard()->count() }}</td>
-	                <td>{{ (is_null($tourney->purse)) ? $current_tourney->leaderboard()->count() * $current_tourney->entry_fee : $current_tourney->purse }}</td>
+	                <td>{{ (is_null($current_tourney->purse)) ? $current_tourney->leaderboard()->count() * $current_tourney->entry_fee : $current_tourney->purse }}</td>
 				</tr>
 				@else
 				<tr>
