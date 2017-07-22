@@ -6,6 +6,9 @@
 			<h2>
 				{{ $tourney->name }}
 			</h2>
+			<span class="tourney-info">
+				<strong>Course Name: </strong>{{ $tourney->course_name }} - <strong>Course Par: </strong>{{ $tourney->par }}
+			</span>
 			<time datetime="{{ $tourney->start_date }}">{{ $tourney->start_date->format('l F d, Y') }} - </time>
 			<time datetime="{{ $tourney->start_date->addDays($tourney->duration) }}">
 				{{ $tourney->start_date->addDays($tourney->duration)->format('l F d, Y') }}
