@@ -120,10 +120,6 @@
                             </span>
                         @endif
                     </div>
-                    <div class="form-input">
-                        <input type="checkbox" name="charity" id="charity">
-                        <label for="charity">Charity event?</label>
-                    </div>
                     <div class="form-input text-center">
                         <button type="submit" class="btn">Create Tournament</button>
                     </div>
