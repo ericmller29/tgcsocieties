@@ -41,7 +41,7 @@
     </table>
     <div class="text-right">
         <a href="{{ route('tourneys') }}" class="btn icon-right with-margin-top">
-            More Societies
+            More Tournaments
             <i class="fa fa-caret-right"></i>
         </a>
     </div>
