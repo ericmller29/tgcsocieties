@@ -781,6 +781,11 @@ a:hover {
   color: #9EC34F;
 }
 
+.scorecard .tourney-info {
+  display: block;
+  font-style: italic;
+}
+
 .level h2 {
   font-size: 2em;
 }

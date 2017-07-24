@@ -48,7 +48,7 @@ class TourneyController extends Controller
         ]);
 
         if($validator->fails()){
-            return redirect()->route('my.tourneys.new')->withErrors($validator)->withInput();
+            return redirect()->route('my.tourneys.edit', $tourney->id)->withErrors($validator)->withInput();
         }
 
         $society = Auth::user()->societies()->find($request->get('society_id'))->first();
@@ -60,13 +60,14 @@ class TourneyController extends Controller
         $tourney->duration = $request->get('duration');
         $tourney->rounds = $request->get('rounds');
         $tourney->par = $request->get('par');
+        $tourney->purse = $request->get('purse');
         $tourney->slug = $this->doSlugThing($request->get('name'));
         $tourney->society()->associate($request->get('society_id'));
         $tourney->user()->associate(Auth::user());
         $tourney->save();
 
         return redirect()->route('my.tourneys')
-            ->with('message', 'Successfully created ' . $tourney->name . ' for ' . $society->name . '!')
+            ->with('message', 'Successfully updated ' . $tourney->name . ' for ' . $society->name . '!')
             ->with('type', 'success');
     }
 
@@ -95,6 +96,7 @@ class TourneyController extends Controller
         $tourney->duration = $request->get('duration');
         $tourney->rounds = $request->get('rounds');
         $tourney->par = $request->get('par');
+        $tourney->purse = $request->get('purse');
         $tourney->slug = $this->doSlugThing($request->get('name'));
         $tourney->charity = $request->get('charity') ? true : false;
         $tourney->society()->associate($request->get('society_id'));
